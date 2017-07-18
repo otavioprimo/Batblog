@@ -1,0 +1,21 @@
+page-loginpage {
+    #logo{
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 20%;
+        width: 80%;
+    }
+
+    #formLogin{
+        margin-top: 40px;
+    }
+
+    #btnLogin{
+        margin-top: 10px;
+    }
+
+    .input-has-focus .input-cover{
+        display: block;
+    }
+}

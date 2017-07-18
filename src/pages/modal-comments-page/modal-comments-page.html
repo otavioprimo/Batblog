@@ -1,0 +1,47 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-buttons start>
+      <button ion-button icon-only (click)="fecharModal()">
+        <ion-icon name="close"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding-top>
+  <ion-refresher (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content pullingIcon="arrow-dropdown" pullingText="Puxe para atualizar" refreshingSpinner="circles" refreshingText="Atualizando..."
+      pullMin="100" style="background-color:yellow;">
+    </ion-refresher-content>
+  </ion-refresher>
+
+  <div *ngIf="carregando">
+    <ion-spinner color="secondary" name="circles" style="margin-left: auto; margin-right: auto;display:block"></ion-spinner>
+  </div>
+
+  <div *ngIf="!carregando">
+    <ion-scroll scrollY="true" id="scrollComments" padding-left padding-right>
+      <ion-item *ngFor="let c of comments" id="comentarios">
+        <ion-avatar item-start>
+          <img src="assets/img/batman2.gif">
+        </ion-avatar>
+        <h2>{{c.user_name}}</h2>
+        <p wrap-content>{{c.message}}</p>
+        <h3>{{c.created}}</h3>
+      </ion-item>
+    </ion-scroll>
+
+    <ion-item id="areaComments" no-lines style="display:inline-block;position: relative">
+      <ion-label stacked style="color:#0289ff;font-size:13px;">Escreva seu comentário</ion-label>
+
+      <ion-textarea autocomplete autocorrect rows="6" style="display:block;" name="commentUser" [(ngModel)]="commentUser">
+      </ion-textarea>
+    </ion-item>
+    <button ion-button icon-only clear style="position:absolute;bottom:10px;right:10px;" (click)="enviarComentario()">
+      <ion-icon name="send"></ion-icon>
+    </button>
+  </div>
+</ion-content>

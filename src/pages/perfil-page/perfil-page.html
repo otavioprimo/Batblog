@@ -1,0 +1,41 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Perfil</ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only (click)="logout()">
+        <ion-icon name="exit"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+  <ion-item no-lines>
+    <ion-avatar item-left style="margin-left:-17px;">
+      <ion-img src="http://loremflickr.com/500/500/superhero,batman"></ion-img>
+      <ion-spinner color="secondary" name="circles" style="margin-top: -58px;margin-left: 27px;"></ion-spinner>
+    </ion-avatar>
+    <h2>{{nomeTemp}}</h2>
+  </ion-item>
+
+  <form style="margin-top:20px;" (submit)="alterar()">
+    <ion-item>
+      <ion-label>
+        <ion-icon name="person"></ion-icon>
+      </ion-label>
+      <ion-input type="text" name="name" [(ngModel)]="user.name" placeholder='Nome'></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>
+        <ion-icon name="mail"></ion-icon>
+      </ion-label>
+      <ion-input type="text" name="email" [(ngModel)]="user.email" placeholder="Email"></ion-input>
+    </ion-item>
+
+    <button ion-button block type="submit" id="btnAlterar" color="secondary">Salvar dados</button>
+  </form>
+
+  <button ion-button block color="danger" id="btnSenha" (click)="validarAlterarSenha()">Mudar Senha</button>
+</ion-content>

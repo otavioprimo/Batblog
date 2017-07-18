@@ -1,0 +1,38 @@
+.ios, .md{
+    page-perfil-page {
+        ion-avatar img{
+            width: 80px;
+            height: 80px;
+        }
+
+        .input-wrapper{
+            color: color($colors, secondary);
+        }
+
+        #btnAlterar{
+            width: 95%;
+            margin-left: 15px;
+            margin-top: 20px;
+        }
+
+        .img-loaded + ion-spinner {
+            display:none;
+        }
+
+        .img-unloaded + ion-spinner{
+            position: absolute;
+        }
+
+        ion-img{
+            width: 80px;
+            height: 80px;
+        }
+
+         #btnSenha{
+            width: 95%;
+            margin-left: 15px;
+            margin-top: 20px;
+            top: calc(100% - 74%);
+        }
+    }
+}

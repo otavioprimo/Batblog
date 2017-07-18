@@ -1,0 +1,28 @@
+<ion-content>
+  <img id="logo" src="assets/img/logo2.png">
+
+  <form id="formLogin" padding-left padding-right style="position: static;" (submit)="login()">
+    <ion-item class="inputBorder" no-lines>
+      <ion-label>
+        <ion-icon name="mail"></ion-icon>
+      </ion-label>
+      <ion-input type="email" placeholder="Email" name="email" [(ngModel)]="email"></ion-input>
+    </ion-item>
+
+    <ion-item class="inputBorder" no-lines>
+      <ion-label>
+        <ion-icon name="lock"></ion-icon>
+      </ion-label>
+      <ion-input type="password" placeholder="Senha" name="password" [(ngModel)]="password"></ion-input>
+    </ion-item>
+
+
+    <button id="btnLogin" type="submit" ion-button block color="secondary">Entrar</button>
+
+  </form>
+
+
+  <p style="color: #afafaf;display:block;margin-left:auto;margin-right:auto;width:220px; margin-top:20px;">
+    Não tem uma conta?<a style="color:white" (click)="cadastrar()"> Cadastre-se</a>
+  </p>
+</ion-content>

@@ -1,0 +1,23 @@
+.ios, .md{
+    page-home {
+
+        ion-img{
+            width: 80px;
+            height: 80px;
+        }
+
+        .img-loaded + ion-spinner {
+            display:none;
+        }
+
+        .img-unloaded + ion-spinner{
+            position: absolute;
+        }
+
+        // .refresher-refreshing-text{
+        //     color: color($colors,secondary);
+        // }
+
+    }
+
+}

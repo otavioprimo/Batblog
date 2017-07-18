@@ -1,0 +1,67 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Novo Post</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+  <div padding>
+    <ion-item class="inputBorder" no-lines>
+      <ion-label>Título</ion-label>
+      <ion-input type="text" name="title" [(ngModel)]="title"></ion-input>
+    </ion-item>
+
+    <ion-item id="conteudo" class="inputBorder" no-lines>
+      <ion-label stacked>Conteúdo</ion-label>
+
+      <ion-textarea autocomplete autocorrect rows="6" name="conteudo" [(ngModel)]="content">
+      </ion-textarea>
+    </ion-item>
+    <button ion-button block color="secondary" (click)="publicar()">Publicar</button>
+  </div>
+
+
+  <!--PREVIEW-->
+  <h6 style="color: yellow;" padding-left>Preview</h6>
+  <ion-card no-padding>
+    <ion-item style="background-color: yellow">
+      <ion-avatar item-left>
+        <img src="assets/img/batman-zuero.png">
+      </ion-avatar>
+      <h2 *ngIf="user.name">{{user.name}}</h2>
+      <h2 *ngIf="!user.name">Batman</h2>
+      <p>07/05/2017</p>
+    </ion-item>
+    <ion-card-content>
+      <h2 style="color: black;margin-top:9px;" *ngIf="title">{{title}}</h2>
+      <h2 style="color: black;margin-top:9px;" *ngIf="!title">Título do post</h2>
+      <p *ngIf="content">{{content}}</p>
+      <p *ngIf="!content">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur ullamcorper lectus a magna aliquet consequat in
+        vel sem. Curabitur orci leo, hendrerit quis vehicula ut, bibendum ac turpis. Curabitur ut metus at eros dignissim
+        imperdiet vel in nibh. Duis risus odio, faucibus id mi vel, hendrerit ullamcorper sapien. Fusce in rutrum felis,
+        ut luctus turpis.</p>
+    </ion-card-content>
+    <ion-row>
+      <ion-col>
+        <button ion-button icon-left clear small>
+          <ion-icon name="thumbs-up"></ion-icon>
+          <div>150 likes</div>
+        </button>
+      </ion-col>
+      <ion-col>
+        <button ion-button icon-left clear small>
+          <ion-icon name="text"></ion-icon>
+          <div> 30 comentários</div>
+        </button>
+      </ion-col>
+      <ion-col center text-center>
+        <ion-note>
+
+        </ion-note>
+      </ion-col>
+    </ion-row>
+  </ion-card>
+</ion-content>

@@ -1,0 +1,53 @@
+<ion-content>
+
+  <ion-refresher (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content pullingIcon="arrow-dropdown" pullingText="Puxe para atualizar" refreshingSpinner="circles" refreshingText="Atualizando..."
+      pullMin="50" style="background-color:yellow;">
+    </ion-refresher-content>
+  </ion-refresher>
+
+  <div *ngIf="carregando">
+    <ion-spinner color="secondary" name="circles" style="margin-left: auto; margin-right: auto;display:block"></ion-spinner>
+  </div>
+
+  <div *ngIf="!carregando">
+    <ion-card *ngFor="let p of posts">
+      <ion-item style="background-color: yellow">
+        <ion-avatar item-left>
+          <!--<ion-img src="http://loremflickr.com/500/500/superhero,batman"></ion-img>-->
+          <!--<ion-spinner color="dark" name="circles" style="margin-top: -40px;"></ion-spinner>-->
+          <img src="assets/img/batman-zuero.png">
+        </ion-avatar>
+        <h2>{{p.author}}</h2>
+        <p>{{p.created}}</p>
+      </ion-item>
+      <ion-card-content>
+        <h2 style="color: black;margin-top:9px;">{{p.title}}</h2>
+        <p>{{p.content}}</p>
+      </ion-card-content>
+      <ion-row>
+        <ion-col>
+          <button ion-button icon-left clear style="color:#cdcdcd" small  *ngIf="p.likes.user_id == user_id">
+            <ion-icon name="thumbs-up"></ion-icon>
+            <div>{{p.likes.length}} likes</div>
+          </button>
+          <button ion-button icon-left clear small (click)="giveLike(p._id)" *ngIf="p.likes.user_id != user_id">
+            <ion-icon name="thumbs-up"></ion-icon>
+            <div>{{p.likes.length}} likes</div>
+          </button>
+        </ion-col>
+        <ion-col>
+          <button ion-button icon-left clear small>
+          <ion-icon name="text"></ion-icon>
+          <div (click)="abrirComentarios(p._id)"> {{p.comments.length}} comentários</div>
+        </button>
+        </ion-col>
+        <ion-col center text-center>
+          <ion-note>
+
+          </ion-note>
+        </ion-col>
+      </ion-row>
+    </ion-card>
+  </div>
+</ion-content>

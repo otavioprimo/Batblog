@@ -1,0 +1,52 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Seus Posts</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+  <div *ngIf="carregando">
+    <ion-spinner color="secondary" name="circles" style="margin-left: auto; margin-right: auto;display:block"></ion-spinner>
+  </div>
+
+  <div *ngIf="posts.length == 0 && !carregando">
+    <p style="color: yellow;margin-top:50px; margin-left: auto; margin-right: auto;display:block; width: 241px;">Você ainda não publicou nenhum post</p>
+  </div>
+  <div *ngIf="!carregando">
+    <ion-card *ngFor="let p of posts">
+      <ion-item style="background-color: yellow">
+        <ion-avatar item-left>
+          <img src="assets/img/batman-zuero.png">
+        </ion-avatar>
+        <h2>{{p.author}}</h2>
+        <p>{{p.created}}</p>
+      </ion-item>
+      <ion-card-content>
+        <h2 style="color: black;margin-top:9px;">{{p.title}}</h2>
+        <p>{{p.content}}</p>
+      </ion-card-content>
+      <ion-row>
+        <ion-col>
+          <button ion-button icon-left clear small>
+          <ion-icon name="thumbs-up"></ion-icon>
+          <div>{{p.likes.length}} likes</div>
+        </button>
+        </ion-col>
+        <ion-col>
+          <button ion-button icon-left clear small>
+          <ion-icon name="text"></ion-icon>
+          <div (click)="abrirComentarios(p._id)"> {{p.comments.length}} comentários</div>
+        </button>
+        </ion-col>
+        <ion-col center text-center>
+          <button ion-button icon-left clear small style='width: 25px;' (click)="actions(p._id)">
+            <ion-icon name="more"></ion-icon>
+          </button>
+        </ion-col>
+      </ion-row>
+    </ion-card>
+  </div>
+</ion-content>

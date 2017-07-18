@@ -1,0 +1,47 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Cadastrar</ion-title>
+    <ion-buttons end>
+      <img src="assets/img/logo2.png" id="logo">
+    </ion-buttons>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <form id="formCadastro" style="position: static;" (submit)="validaCadastro()"> 
+    <ion-item no-lines class="inputBorder">
+      <ion-label>
+        <ion-icon name="contact"></ion-icon>
+      </ion-label>
+      <ion-input type="text" placeholder="Nome" name="name" [(ngModel)]="name"></ion-input>
+    </ion-item>
+
+    <ion-item no-lines class="inputBorder">
+      <ion-label>
+        <ion-icon name="mail"></ion-icon>
+      </ion-label>
+      <ion-input type="email" placeholder="Email" name="email" [(ngModel)]="email"></ion-input>
+    </ion-item>
+
+    <ion-item no-lines class="inputBorder">
+      <ion-label>
+        <ion-icon name="lock"></ion-icon>
+      </ion-label>
+      <ion-input type="password" placeholder="Senha" name="password" [(ngModel)]="password"></ion-input>
+    </ion-item>
+
+    <ion-item no-lines class="inputBorder">
+      <ion-label>
+        <ion-icon name="lock"></ion-icon>
+      </ion-label>
+      <ion-input type="password" placeholder="Confime sua senha" name="confirmPassword" [(ngModel)]="confirmPassword"></ion-input>
+    </ion-item>
+
+    <button ion-button block color="secondary" type="submit" id="btnCadastrar">CADASTRAR</button>
+  </form>
+
+  <img src="assets/img/batman-zuero.png" id="imgFooter">
+</ion-content>
